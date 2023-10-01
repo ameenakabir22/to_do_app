@@ -1,13 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:helloworld/utilities/todo_tile.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List toDoList = [
+    ["Make dinner", false],
+    ["Eat breakfast", false]
+  ];
+
+  void checkBoxChanged(bool? value, int index) {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.purple[200],
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Center(child: Text("To Do App")),
+        elevation: 0,
+      ),
+      body: ListView.builder(
+        itemCount: toDoList.length,
+        itemBuilder: (context, index) {
+          return ToDoTile(
+            taskName: toDoList[index][0],
+            taskCompleted: toDoList[index][1],
+            onChanged: (value) => checkBoxChanged(value, index),
+          );
+        },
+      ),
     );
   }
 }
