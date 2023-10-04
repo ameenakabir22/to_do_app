@@ -19,10 +19,20 @@ class ToDoTile extends StatelessWidget {
         child: Row(
           children: [
             //check box
-            Checkbox(value: taskCompleted, onChanged: onChanged),
+            Checkbox(
+              value: taskCompleted,
+              onChanged: onChanged,
+              activeColor: Colors.black,
+            ),
 
             // task name
-            Text(taskName),
+            Text(
+              taskName,
+              style: TextStyle(
+                  decoration: taskCompleted
+                      ? TextDecoration.lineThrough
+                      : TextDecoration.none),
+            ),
           ],
         ),
         padding: const EdgeInsets.all(25.0),
