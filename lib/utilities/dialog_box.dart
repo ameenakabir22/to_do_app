@@ -5,6 +5,17 @@ class DialogBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return AlertDialog(
+      backgroundColor: Colors.purple[200],
+      content: Container(
+        height: 120,
+        child: Column(children: [
+          //user input
+          TextField()
+
+          // button -> save and cancel
+        ]),
+      ),
+    );
   }
 }
