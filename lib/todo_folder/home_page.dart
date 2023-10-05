@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox();
+        return DialogBox(); // Pass an instance of DialogBox here
       },
     );
   }
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          createNewTask;
+          createNewTask();
         },
         child: Icon(Icons.add),
       ),
