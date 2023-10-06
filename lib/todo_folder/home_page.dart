@@ -10,6 +10,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  //
+  final _controller = TextEditingController();
+
   List toDoList = [
     ["Make dinner", false],
     ["Eat breakfast", false]
@@ -26,7 +29,9 @@ class _HomePageState extends State<HomePage> {
     showDialog(
       context: context,
       builder: (context) {
-        return DialogBox(); // Pass an instance of DialogBox here
+        return DialogBox(
+          controller: _controller,
+        ); // Pass an instance of DialogBox here
       },
     );
   }
