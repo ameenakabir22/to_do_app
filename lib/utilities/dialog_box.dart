@@ -10,7 +10,8 @@ class DialogBox extends StatelessWidget {
       backgroundColor: Colors.purple[200],
       content: Container(
         height: 120,
-        child: Column(children: [
+        child:
+            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           //user input
           TextField(
             decoration: InputDecoration(
@@ -23,6 +24,10 @@ class DialogBox extends StatelessWidget {
             children: [
               // save buttton
               MyButton(text: "Save", onPressed: () {}),
+
+              const SizedBox(
+                width: 10,
+              ),
               // cancel button
               MyButton(text: "Cancel", onPressed: () {})
             ],
