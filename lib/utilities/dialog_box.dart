@@ -4,7 +4,7 @@ import 'package:helloworld/utilities/my_button.dart';
 class DialogBox extends StatelessWidget {
   final controller;
   VoidCallback onSave;
-  VoidCallBack onCancel;
+  VoidCallback onCancel;
 
   DialogBox(
       {super.key,
