@@ -4,12 +4,14 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   Function(bool?)? onChanged;
+  Function(BuildContext) deleteFunction;
 
   ToDoTile(
       {super.key,
       required this.taskName,
       required this.taskCompleted,
-      required this.onChanged});
+      required this.onChanged,
+      required this.deleteFunction});
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +34,11 @@ class ToDoTile extends StatelessWidget {
                   decoration: taskCompleted
                       ? TextDecoration.lineThrough
                       : TextDecoration.none),
+            ),
+            Spacer(),
+            GestureDetector(
+              onTap: () => deleteFunction(context),
+              child: Icon(Icons.delete),
             ),
           ],
         ),
