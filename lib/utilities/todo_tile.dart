@@ -4,14 +4,17 @@ class ToDoTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
   Function(bool?)? onChanged;
-  Function(BuildContext) deleteFunction;
+  final Function(int) deleteFunction;
+  final int index;
 
-  ToDoTile(
-      {super.key,
-      required this.taskName,
-      required this.taskCompleted,
-      required this.onChanged,
-      required this.deleteFunction});
+  ToDoTile({
+    super.key,
+    required this.taskName,
+    required this.taskCompleted,
+    required this.onChanged,
+    required this.deleteFunction,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +40,10 @@ class ToDoTile extends StatelessWidget {
             ),
             Spacer(),
             GestureDetector(
-              onTap: () => deleteFunction(context),
+              onTap: () {
+                // Call deleteFunction with the correct index
+                deleteFunction(index);
+              },
               child: Icon(Icons.delete),
             ),
           ],
